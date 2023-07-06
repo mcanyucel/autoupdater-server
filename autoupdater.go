@@ -77,7 +77,7 @@ func viewHandler(w http.ResponseWriter, r *http.Request) {
 		appName := query.Get("name")
 		data, err := loadData(appName)
 		if err != nil {
-			w.WriteHeader(http.StatusBadRequest)
+			writeResponse(http.StatusBadRequest, w)
 		} else {
 			w.Header().Add("Cache-Control", "no-store")
 			w.Header().Set("Content-Type", "application/json")
@@ -94,7 +94,7 @@ func viewHandler(w http.ResponseWriter, r *http.Request) {
 		appVersion := v.Get("app_version")
 		downloadUrl := v.Get("download_url")
 		password := v.Get("password")
-		if password != "<password>" {
+		if password != "qw12QW!@" {
 			writeResponse(http.StatusUnauthorized, w)
 			return
 		}
