@@ -98,7 +98,7 @@ func viewHandler(w http.ResponseWriter, r *http.Request) {
 		appVersion := v.Get("app_version")
 		downloadUrl := v.Get("download_url")
 		password := v.Get("password")
-		if password != "qw12QW!@" {
+		if password != "<password>" {
 			writeResponse(http.StatusUnauthorized, w)
 			return
 		}
